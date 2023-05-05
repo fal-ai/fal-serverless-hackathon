@@ -6,7 +6,6 @@ from fal_serverless import isolated, cached
     "virtualenv",
     requirements=["git+https://github.com/nomic-ai/pygpt4all", "huggingface_hub"],
     machine_type="L",
-    keep_alive=10,  # Keep alive for 10 seconds
     serve=True,
 )
 def run_basic_gpt(prompt: str) -> str:
@@ -33,8 +32,3 @@ def gpt():
 
     model = GPT4All(data_file)
     return model
-
-
-@isolated(serve=True)
-def test():
-    return "Hello World"

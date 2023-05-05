@@ -11,6 +11,7 @@ from fal_serverless import isolated
 def run_basic_gpt(prompt: str) -> str:
     import os
 
+    # Use the data directory to cache the model
     os.environ["XDG_CACHE_HOME"] = "/data/.cache"
 
     from huggingface_hub import hf_hub_download
